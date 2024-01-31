@@ -5,9 +5,11 @@ const app = express();
 
 app.get("/", (request, response) => {
   console.log(request);
-  return response.status(234);
+  return response.status(234).send('Welcome to MERN Stack Tutorial');
 });
 
 app.listen(PORT, () => {
   console.log(`App is listening on port: ${PORT}`);
 });
+
+//continue with Add MongoDB and mongoose to node.js
