@@ -3,4 +3,6 @@ import { PORT } from "./config";
 
 const app = express();
 
-app.listen(PORT);
+app.listen(PORT, () => {
+    console.log(`App is listening to port: ${PORT}`)
+});
