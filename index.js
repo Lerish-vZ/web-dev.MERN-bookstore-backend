@@ -10,6 +10,9 @@ app.get("/", (request, response) => {
   return response.status(234).send("Welcome to MERN Stack Tutorial");
 });
 
+//Route to save a new book
+app.post('/books');
+
 //console.log(mongoDBURL);
 
 mongoose
