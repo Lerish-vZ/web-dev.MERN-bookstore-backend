@@ -18,6 +18,9 @@ app.post("/books", async (request, response) => {
       !request.body.author ||
       !request.body.publishYear
     ) {
+      return response.status(400).send({
+        message: `Send all required fields: title, author, publishYear`,
+      });
     }
   } catch (error) {
     console.log(error.message);
