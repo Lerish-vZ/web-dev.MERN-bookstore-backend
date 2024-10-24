@@ -65,6 +65,25 @@ app.get("/books/:id", async (request, response) => {
   }
 });
 
+//Route to update a book
+app.put('/books/:id', async (request, response) => {
+  try{
+    if (
+      !request.body.title ||
+      !request.body.author ||
+      !request.body.publishYear
+    ) {
+      return response.status(400).send({
+        message: `Send all required fields: title, author, publishYear`,
+      });
+    }
+    const { id } = request.params;
+  } catch (error) {
+    console.log(error.message);
+    response.status(500).send({ message: error.message });
+  }
+})
+
 //console.log(mongoDBURL);
 
 mongoose
