@@ -9,10 +9,6 @@ app.get("/", (request, response) => {
   return response.status(234).send("Welcome to MERN Stack Tutorial");
 });
 
-app.listen(PORT, () => {
-  console.log(`App is listening to port: ${PORT}`);
-});
-
 mongoose
   .connect(mongoDBURL)
   .then(() => {
@@ -20,4 +16,8 @@ mongoose
   })
   .catch((error) => {
     console.log(error);
+  });
+
+  app.listen(PORT, () => {
+    console.log(`App is listening to port: ${PORT}`);
   });
