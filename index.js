@@ -9,6 +9,8 @@ app.get("/", (request, response) => {
   return response.status(234).send("Welcome to MERN Stack Tutorial");
 });
 
+console.log(mongoDBURL);
+
 mongoose
   .connect(mongoDBURL)
   .then(() => {
