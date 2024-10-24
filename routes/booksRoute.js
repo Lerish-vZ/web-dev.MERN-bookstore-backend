@@ -3,7 +3,7 @@ import express from 'express';
 const router = express.Router();
 
 //Route to save a new book
-app.post("/books", async (request, response) => {
+router.post("/books", async (request, response) => {
   try {
     if (
       !request.body.title ||
@@ -29,7 +29,7 @@ app.post("/books", async (request, response) => {
 });
 
 //Route to get all books from DB
-app.get("/books", async (request, response) => {
+router.get("/books", async (request, response) => {
   try {
     const books = await Book.find({});
     return response.status(200).json({
@@ -43,7 +43,7 @@ app.get("/books", async (request, response) => {
 });
 
 //Route to get book by id
-app.get("/books/:id", async (request, response) => {
+router.get("/books/:id", async (request, response) => {
   try {
     const { id } = request.params;
     const book = await Book.findById(id);
@@ -55,7 +55,7 @@ app.get("/books/:id", async (request, response) => {
 });
 
 //Route to update a book
-app.put("/books/:id", async (request, response) => {
+router.put("/books/:id", async (request, response) => {
   try {
     if (
       !request.body.title ||
@@ -81,7 +81,7 @@ app.put("/books/:id", async (request, response) => {
 });
 
 //Route to delete a book
-app.delete("/books/:id", async (request, response) => {
+router.delete("/books/:id", async (request, response) => {
   try {
     const { id } = request.params;
     const result = await Book.findByIdAndDelete(id);
